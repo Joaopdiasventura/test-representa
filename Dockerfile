@@ -9,6 +9,9 @@ RUN mvn clean install -DskipTests
 
 FROM openjdk:21-jdk-slim
 
+RUN apk add --no-cache tzdata
+ENV TZ=America/Sao_Paulo
+
 EXPOSE 8080
 
 COPY --from=build /target/server-0.0.1-SNAPSHOT.jar app.jar
