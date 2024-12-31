@@ -13,7 +13,7 @@ import lombok.Setter;
 public class User {
 
     @Id
-    private String _id;
+    private String id;
 
     @Indexed(unique = true)
     private String email;

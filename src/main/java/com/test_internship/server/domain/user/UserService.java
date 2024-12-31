@@ -31,7 +31,7 @@ public class UserService {
 
         User user = this.userRepository.save(createUserDto.toUser());
 
-        String token = this.jwtService.generateToken(user.get_id());
+        String token = this.jwtService.generateToken(user.getId());
 
         user.removePassword();
 
@@ -45,7 +45,7 @@ public class UserService {
         if (!isPasswordValid)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Senha inválida");
 
-        String token = this.jwtService.generateToken(user.get_id());
+        String token = this.jwtService.generateToken(user.getId());
 
         user.removePassword();
 
